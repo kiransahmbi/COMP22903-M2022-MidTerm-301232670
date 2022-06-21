@@ -1,3 +1,9 @@
+// File Name: car.js
+// Author's Name: Kirandeep Sahmbi
+// Student ID: 301232670
+// Web App Name: COMP229 Midterm
+
+const car = require('../models/car');
 // create a reference to the model
 let CarModel = require('../models/car');
 
@@ -52,6 +58,7 @@ module.exports.displayAddPage = (req, res, next) => {
 // Processes the data submitted from the Add form to create a new car
 module.exports.processAddPage = (req, res, next) => {
 
+    // Create Instance of Car
     let newItem = CarModel({
         make: req.body.make,
         model: req.body.model,
@@ -63,6 +70,7 @@ module.exports.processAddPage = (req, res, next) => {
         price: req.body.price
     });
 
+    // Submits New Instance To Database and Creates New Document
     CarModel.create(newItem, (err, item) => {
         if(err) {
             res.end(err);
@@ -95,6 +103,7 @@ module.exports.displayEditPage = (req, res, next) => {
 module.exports.processEditPage = (req, res, next) => {
     let id = req.params.id;
 
+    // Create New Instance of Updated Object
     let updatedItem = CarModel({
         _id: req.body.id,
         make: req.body.make,
@@ -107,6 +116,7 @@ module.exports.processEditPage = (req, res, next) => {
         price: req.body.price
     });
     
+    // Submits Updated Instance to Database and Updates Document
     CarModel.updateOne({_id: id}, updatedItem, (err) => {
         if (err) {
             res.end(err);

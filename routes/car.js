@@ -1,3 +1,8 @@
+// File Name: car.js
+// Author's Name: Kirandeep Sahmbi
+// Student ID: 301232670
+// Web App Name: COMP229 Midterm
+
 var express = require('express');
 var router = express.Router();
 
@@ -13,7 +18,6 @@ function requireAuth(req, res, next)
         return res.redirect('/users/signin');
     }
     next();    
-
 }
 
 /* GET list of items */
