@@ -1,6 +1,9 @@
 {
   "name": "comp229.m2022.midterm",
   "version": "1.0.0",
+  "engines": {
+    "node": "16.x"
+  },
   "private": true,
   "scripts": {
     "start": "node ./server.js"
